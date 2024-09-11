@@ -2,7 +2,7 @@
 
 ## kubernetes 설정하기
 
-- docker desktop을 '관리자 권한'으로 수행
+- docker desktop을 `관리자 권한`으로 수행
 - 설정으로 이동 뒤, kubernetes 탭에서 enable kubernetes 선택
 
  ![1](./images/1.png)
