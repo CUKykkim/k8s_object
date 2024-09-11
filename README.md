@@ -2,7 +2,7 @@
 
 ## kubernetes 설정하기
 
-- docker desktop 수행
+- docker desktop을 '관리자 권한'으로 수행
 - 설정으로 이동 뒤, kubernetes 탭에서 enable kubernetes 선택
 
  ![1](./images/1.png)
@@ -28,7 +28,7 @@
     metadata:
       name: nginx
       labels:
-      name: nginx
+        app: nginx
     spec:
       containers:
       - name: nginx
@@ -46,6 +46,12 @@
    ```
    kubectl get pod
    ```
+
+- kubectl delete 명령어를 이용해 기동된 pod를 삭제시킬 수 있다. 
+
+  ```
+  kubectl delete pod nginx 
+  ```
 
 ## 서비스 수행하기
 
@@ -71,7 +77,7 @@
     - port: 80
       protocol: TCP
     selector:
-      name: nginx
+      app: nginx
     type: LoadBalancer
   ```
 
@@ -132,6 +138,7 @@
   nginx-deployment   3/3     3            3           18s
   ```
 
+- 수행중인 3개의 pod중 하나의 pod를 강제 삭제하면, 자동으로 삭제된 pod가 기동되는 것을 확인할 수 있다. 
 
 ### 디플로이먼트 스케일링 하기
 
